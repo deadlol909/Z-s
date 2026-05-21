@@ -1,0 +1,1 @@
+export default function AdminPage(){return <section className="p-4 md:p-8"><div className="glass rounded-2xl p-6"><h1 className="text-2xl font-bold">Admin Dashboard</h1><p className="text-white/70 mt-2">User management, analytics, moderation, reports, and platform statistics modules scaffolded for expansion.</p></div></section>;}
