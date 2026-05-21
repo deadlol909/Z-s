@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Base</title>
+    <style>
+      :root {
+        --bg-dark: #0f172a;
+        --bg-light: #e2e8f0;
+        --text-dark: #e2e8f0;
+        --text-light: #0f172a;
+        --card-dark: rgba(148, 163, 184, 0.15);
+        --card-light: rgba(15, 23, 42, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg-dark);
+        color: var(--text-dark);
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      body.light-mode {
+        background: var(--bg-light);
+        color: var(--text-light);
+      }
+
+      .landing {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin: 0.5rem 0 1rem;
+      }
+
+      .eyebrow {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+
+      .cta {
+        margin-top: 1rem;
+        border: 1px solid currentColor;
+        border-radius: 9999px;
+        padding: 0.65rem 1.2rem;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+      }
+
+      .cards {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        margin: 2rem 0;
+      }
+
+      .card {
+        border-radius: 16px;
+        padding: 1rem;
+        background: var(--card-dark);
+      }
+
+      body.light-mode .card {
+        background: var(--card-light);
+      }
+
+      .footer {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="landing">
+      <header class="hero">
+        <p class="eyebrow">HTML + CSS + JavaScript</p>
+        <h1>Frontend Foundation</h1>
+        <p>
+          This homepage is built with semantic HTML structure, custom CSS styling,
+          and JavaScript behavior.
+        </p>
+        <button id="themeToggle" class="cta" type="button">Toggle Theme</button>
+      </header>
+
+      <section class="cards" aria-label="Feature cards">
+        <article class="card">
+          <h2>HTML</h2>
+          <p>Clean sections, headings, buttons, and accessible content layout.</p>
+        </article>
+        <article class="card">
+          <h2>CSS</h2>
+          <p>Custom styling, spacing, and responsive card-based design.</p>
+        </article>
+        <article class="card">
+          <h2>JavaScript</h2>
+          <p>Interactive theme toggle and dynamic current-year rendering.</p>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <small>© <span id="year"></span> Frontend Base</small>
+      </footer>
+    </main>
+
+    <script>
+      const yearNode = document.getElementById('year');
+      if (yearNode) {
+        yearNode.textContent = String(new Date().getFullYear());
+      }
+
+      const button = document.getElementById('themeToggle');
+      button?.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+      });
+    </script>
+  </body>
+</html>

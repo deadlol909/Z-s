@@ -4,3 +4,72 @@
 :root { color-scheme: dark; }
 body { @apply bg-background text-white antialiased; }
 .glass { @apply bg-card border border-white/10 backdrop-blur-xl shadow-glass; }
+
+:root {
+  --bg-dark: #0f172a;
+  --bg-light: #e2e8f0;
+  --text-dark: #e2e8f0;
+  --text-light: #0f172a;
+  --card-dark: rgba(148, 163, 184, 0.15);
+  --card-light: rgba(15, 23, 42, 0.08);
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+.landing {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0.5rem 0 1rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.cta {
+  margin-top: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  padding: 0.65rem 1.2rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 2rem 0;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 1rem;
+  background: var(--card-dark);
+}
+
+body.light-mode .card {
+  background: var(--card-light);
+}
+
+.footer {
+  opacity: 0.8;
+}
